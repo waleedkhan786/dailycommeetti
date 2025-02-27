@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ڈیلِی کمیٹی - Lucky Draw</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <script>
+        function enterDraw() {
+            alert('آپ کا داخلہ مکمل ہو گیا! نیک تمنائیں! 🎉');
+        }
+        
+        function spinWheel() {
+            const wheel = document.getElementById("wheel");
+            const randomDegree = Math.floor(5000 + Math.random() * 5000); // Random spin
+            wheel.style.transition = "transform 4s ease-out";
+            wheel.style.transform = `rotate(${randomDegree}deg)`;
+            
+            setTimeout(() => {
+                alert("مبارک ہو! آپ نے جیت لیا 🎉");
+            }, 4000);
+        }
+    </script>
+    <style>
+        body {
+            background: url('./dsgn_23.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+        }
+        .header {
+            background: linear-gradient(to right, #ffcc00, #ff6600);
+            padding: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 30px;
+            flex-wrap: wrap;
+        }
+        .header img {
+            width: 50px;
+            height: 50px;
+        border-radius: 5px;
+        }
+        .nav {
+            font-size: 1rem;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+        .box {
+            background: rgba(255, 0, 0, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 1.5rem;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+        }
+        .trusted-badge {
+            background: linear-gradient(45deg, gold, orange);
+            padding: 15px 25px;
+            border-radius: 50px;
+            display: inline-block;
+            margin: 15px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.5);
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .button {
+            background: gold;
+            color: #a80000;
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+        .button:hover { background: #ffcc00; }
+        .footer {
+            margin-top: 30px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 1rem;
+            border-radius: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .footer-section {
+            margin: 10px;
+            flex: 1 1 200px;
+        }
+        .payment-container {
+            width: 100%;
+            border-top: 1px solid white;
+            padding-top: 10px;
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .payment-icons img {
+            width: 80px;
+            margin: 10px;
+        }
+        .wheel-container {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .wheel {
+            width: 280px;
+            height: 280px;
+            background: url('./spin-wheel.avif') no-repeat center center/cover;
+            border-radius: 50%;
+            transition: transform 4s ease-out;
+        }
+        .payment-icons{
+            display: flex;
+            justify-content: center;
+        }
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .nav {
+                margin-top: 10px;
+            }
+            .box {
+                font-size: 1.2rem;
+                padding: 10px;
+            }
+            .trusted-badge {
+                font-size: 1.2rem;
+                padding: 10px 20px;
+            }
+            .button {
+                font-size: 1.2rem;
+                padding: 10px 20px;
+            }
+            .wheel {
+                width: 250px;
+                height: 250px;
+            }
+            .footer {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-section {
+                margin-bottom: 15px;
+            }
+            .payment-icons img {
+                width: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="./header-logo.jpg" alt="Logo">
+     ڈیلِی کمیٹی  🎉
+        <div class="nav">
+            <a href="index.html" rel="noreferrer">ہوم</a>
+            <a href="blog.html" rel="noreferrer">بلاگ</a>
+        </div>
+    </div>
+    
+    <div class="flex justify-center mt-10 flex-wrap">
+        <div class="box mx-5">300 داخلہ فیس</div>
+        <div class="box mx-5">30,000 انعام</div>
+    </div>
+    
+    <div class="trusted-badge">✅ TRUSTED</div>
+    
+    <div class="wheel-container">
+        <div id="wheel" class="wheel"></div>
+    </div>
+    
+    <button class="button" onclick="spinWheel()">گھمائیں اور جیتیں 🎡</button>
+    
+    <div class="footer">
+        <div class="footer-section">
+            <h3>ہمارے بارے میں</h3>
+            <p>ہم آپ کو بہترین اور شفاف لاٹری سروس فراہم کرتے ہیں۔</p>
+        </div>
+        <div class="footer-section">
+            <h3>سپورٹ</h3>
+            <p>ہم سے رابطہ کریں: support@dailylucky.com</p>
+        </div>
+        <div class="footer-section">
+            <h3>سوشل میڈیا</h3>
+            <p>فیس بک | ٹویٹر | انسٹاگرام</p>
+        </div>
+    </div>
+    
+    <div class="payment-container">
+        <div class="payment-icons">
+            <h3>ادائیگی کے طریقے</h3>
+            <img src="jazzcash.png" alt="JazzCash">
+            <img src="easypaisa.png" alt="Easypaisa">
+        </div>
+    </div>
+</body>
+</html>
