@@ -37,7 +37,7 @@
         .prize-item {
             background: rgba(255, 0, 0, 0.8);
             padding: 15px;
-            border-radius: 10px;
+            border-radius: 15px;
             font-size: 1.2rem;
             font-weight: bold;
             box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.5);
@@ -102,11 +102,56 @@
             color: black;
            
         }
+        @media (max-width: 768px) {
+            .prizes {
+            margin: 30px auto;
+            max-width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .social-icons {
+    
+        gap: 10px;
+        }
+        .social-media {
+    text-align: center;
+}
+        }
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Space between icons */
+    margin-top: 10px;
+}
+
+.social-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+    color: white;
+}
+
+.social-item img {
+    width: 40px; /* Adjust the icon size */
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-item img:hover {
+    transform: scale(1.2); /* Slight zoom effect on hover */
+}
+
+/* Responsive Design */
+
+
     </style>
 </head>
 <body>
     <div class="lucky-draw-title">Lucky Draw</div>
-    <p class="text-2xl">اپنی قسمت آزمائیں! جیتنے کا سنہری موقع! 🎉</p>
+    <p style="color: black;" class="text-2xl">اپنی قسمت آزمائیں! جیتنے کا سنہری موقع! 🎉</p>
     
   
     
@@ -129,12 +174,26 @@
         </div>
         <div class="footer-section">
             <h3>سپورٹ</h3>
-            <p>ہم سے رابطہ کریں: support@dailylucky.com</p>
+            <p>ہم سے رابطہ کریں: dailycommeetti.netlify.app</p>
         </div>
-        <div class="footer-section">
+        <div class="footer-section social-media">
             <h3>سوشل میڈیا</h3>
-            <p>فیس بک | ٹویٹر | انسٹاگرام</p>
+            <div class="social-icons">
+                <div class="social-item">
+                    <img src="./icons8-facebook-48.png" alt="Facebook">
+                    <span>فیس بک</span>
+                </div>
+                <div class="social-item">
+                    <img src="./icons8-twitter-24.png" alt="Twitter">
+                    <span>ٹویٹر</span>
+                </div>
+                <div class="social-item">
+                    <img src="./icons8-instagram-logo-100.png" alt="Instagram">
+                    <span>انسٹاگرام</span>
+                </div>
+            </div>
         </div>
+        
     </div>
     
     <div class="payment-container">
