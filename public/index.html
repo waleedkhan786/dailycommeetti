@@ -6,20 +6,18 @@
     <title>ڈیلِی کمیٹی - Lucky Draw</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" >
     <script>
-        function enterDraw() {
-            alert('آپ کا داخلہ مکمل ہو گیا! نیک تمنائیں! 🎉');
-        }
-        
         function spinWheel() {
-            const wheel = document.getElementById("wheel");
-            const randomDegree = Math.floor(5000 + Math.random() * 5000); // Random spin
-            wheel.style.transition = "transform 4s ease-out";
-            wheel.style.transform = `rotate(${randomDegree}deg)`;
-            
-            setTimeout(() => {
-                alert("مبارک ہو! آپ نے جیت لیا 🎉");
-            }, 4000);
-        }
+        const wheel = document.getElementById("wheel");
+        const formContainer = document.getElementById("form-container");
+        const randomDegree = Math.floor(5000 + Math.random() * 5000); // Random spin
+        wheel.style.transition = "transform 4s ease-out";
+        wheel.style.transform = `rotate(${randomDegree}deg)`;
+        
+        setTimeout(() => {
+            alert("مبارک ہو! آپ نے جیت لیا 🎉");
+            formContainer.style.display = "block"; // Show form after spin
+        }, 4000);
+    }
     </script>
     <style>
         body {
@@ -37,7 +35,7 @@
             box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
             display: flex;
-            justify-content: space-between;
+        justify-content: center;
             align-items: center;
             padding: 10px 30px;
             flex-wrap: wrap;
@@ -46,16 +44,17 @@
             width: 50px;
             height: 50px;
         border-radius: 5px;
+        
         }
-        .nav {
+        /* .nav {
             font-size: 1rem;
-        }
-        .nav a {
+        } */
+        /* .nav a {
             color: white;
             text-decoration: none;
             margin: 0 10px;
             font-weight: bold;
-        }
+        } */
         .box {
             background: rgba(255, 0, 0, 0.8);
             padding: 15px;
@@ -175,6 +174,7 @@
             }
             .nav {
                 margin-top: 10px;
+            font-weight: bold;
             }
             .box {
                 font-size: 1.2rem;
@@ -201,18 +201,80 @@
             }
             .payment-icons img {
                 width: 60px;
+                border-radius: 15px;
             }
         }
+
+        .lucky-draw-title {
+            font-size: 4rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: linear-gradient(45deg, rgb(0, 255, 204), orange);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+      
+        .prizes {
+            margin: 30px auto;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .prize-item {
+            background: rgba(231, 207, 32, 0.906);
+            padding: 15px;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.5);
+            transition: transform 0.3s ease-in-out;
+        }
+        .prize-item:hover {
+            transform: scale(1.1);
+        }
+       
+       
+        .lucky-draw-box {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
+        }
+        @media (max-width: 768px) {
+            .prizes {
+            margin: 30px auto;
+            max-width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .prize-item:hover {
+            transform: scale(1.1);
+        }
+        .social-icons {
+    
+        gap: 10px;
+        }
+    }
     </style>
 </head>
 <body>
     <div class="header">
-        <img src="./header-logo.jpg"  alt="Logo" >
-     ڈیلِی کمیٹی  🎉
-        <div class="nav">
+       
+     ڈیلِی کمیٹی  
+      <img src="./WhatsApp Image 2025-02-26 at 4.16.18 PM (1).jpeg"  alt="Logo" >
+        <!-- <div class="nav">
             <a href="index.html" rel="noreferrer">ہوم</a>
             <a href="blog.html" rel="noreferrer">بلاگ</a>
-        </div>
+        </div> -->
     </div>
     
     <div class="flex justify-center mt-10 flex-wrap">
@@ -225,8 +287,56 @@
     <div class="wheel-container">
         <div id="wheel" class="wheel"></div>
     </div>
+
+    <div id="form-container" style="display: none; background: white; color: black; padding: 20px; border-radius: 10px; width: 300px; margin: 20px auto; text-align: right;">
+        <h2 class="text-2xl font-bold">معلومات درج کریں</h2>
+        <form id="user-form">
+            <label for="name">نام:</label>
+            <input type="text" id="name" name="name" required class="border p-2 w-full"><br><br>
+            
+            <label for="phone">فون نمبر:</label>
+            <input type="tel" id="phone" name="phone" required class="border p-2 w-full"><br><br>
+            
+            <label for="email">ای میل:</label>
+            <input type="email" id="email" name="email" class="border p-2 w-full"><br><br>
+            
+            <button type="submit" class="button">جمع کروائیں</button>
+        </form>
+    </div>
+    
     
     <button class="button" onclick="spinWheel()">گھمائیں اور جیتیں 🎡</button>
+
+    <div class="lucky-draw-title">Lucky Draw</div>
+    <p style="color: black;" class="text-2xl">اپنی قسمت آزمائیں! جیتنے کا سنہری موقع! 🎉</p>
+    
+  
+    
+    <div class="lucky-draw-box">
+        <h2 class="text-3xl font-bold">⚡ آج کا سب سے بڑا موقع! ⚡</h2>
+        <p class="text-lg">آپ بھی جیت سکتے ہیں حیرت انگیز انعامات! فوراً شامل ہوں اور اپنی قسمت آزمائیں۔</p>
+    </div>
+    
+    <div class="prizes flex flex-col items-center justify-center text-center mx-auto">
+        <div class="prize-item flex items-center gap-4">
+            <img src="apple-iphone-16-pro-max-260nw-2572934493.webp" alt="iPhone 15 Pro" class="w-12 h-12">
+            <span>📱 1000 PKR - iPhone 15 Pro</span>
+        </div>
+        <div class="prize-item flex items-center gap-4">
+            <img src="honda cd.jfif" alt="Honda CD 70" class="w-12 h-12">
+            <span>🏍 2000 PKR - Honda CD 70</span>
+        </div>
+        <div class="prize-item flex items-center gap-4">
+            <img src="./CG 125.jfif" alt="Honda CG 125" class="w-12 h-12">
+            <span>🏍 5000 PKR - Honda CG 125</span>
+        </div>
+        <div class="prize-item flex items-center gap-4">
+            <img src="./alto.jpg" alt="Alto 660cc" class="w-12 h-12">
+            <span>🚗 10000 PKR - Alto 660cc</span>
+        </div>
+    </div>
+    
+    
     
     <div class="footer">
         <div class="footer-section">
@@ -245,7 +355,7 @@
                     <span>فیس بک</span>
                 </div>
                 <div class="social-item">
-                    <img src="./icons8-twitter-100.png" alt="Twitter">
+                    <img src="./twitter.avif" alt="Twitter">
                     <span>ٹویٹر</span>
                 </div>
                 <div class="social-item">
@@ -260,7 +370,9 @@
         <div class="payment-icons">
             <h3>ادائیگی کے طریقے</h3>
             <img src="jazzcash.png"  alt="JazzCash">
+        
             <img src="easypaisa.png" alt="Easypaisa">
+            
         </div>
     </div>
 </body>
